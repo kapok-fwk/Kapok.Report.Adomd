@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kapok.Report.Adomd", "Kapok.Report.Adomd\Kapok.Report.Adomd.csproj", "{74ED0EA0-66A5-4B90-838B-3158D059F9A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kapok.Report.Adomd.UnitTest", "Kapok.Report.Adomd.UnitTest\Kapok.Report.Adomd.UnitTest.csproj", "{924DE6A3-FC15-4446-B03C-0B3E6302FF6F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74ED0EA0-66A5-4B90-838B-3158D059F9A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74ED0EA0-66A5-4B90-838B-3158D059F9A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74ED0EA0-66A5-4B90-838B-3158D059F9A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74ED0EA0-66A5-4B90-838B-3158D059F9A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{924DE6A3-FC15-4446-B03C-0B3E6302FF6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{924DE6A3-FC15-4446-B03C-0B3E6302FF6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{924DE6A3-FC15-4446-B03C-0B3E6302FF6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{924DE6A3-FC15-4446-B03C-0B3E6302FF6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {652C258B-C56F-4BDC-B981-A64B42BA3559}
+	EndGlobalSection
+EndGlobal
