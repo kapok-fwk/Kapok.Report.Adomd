@@ -8,8 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="4.5.3.3" />
-    <PackageReference Include="Kapok.Report" Version="0.1.1" />
-    <PackageReference Include="Microsoft.AnalysisServices.AdomdClient.NetCore.retail.amd64" Version="19.39.2.2" />
+    <PackageReference Include="Kapok.Report" Version="0.1.5.1" />
+    <PackageReference Include="Microsoft.AnalysisServices.AdomdClient.NetCore.retail.amd64" Version="19.61.1.4" />
   </ItemGroup>
 
   <ItemGroup>
