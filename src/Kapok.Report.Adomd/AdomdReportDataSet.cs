@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Data;
+using Kapok.Report.Model;
 using Microsoft.AnalysisServices.AdomdClient;
 
 namespace Kapok.Report.Adomd;
@@ -28,7 +29,7 @@ public class AdomdReportDataSet : IDbReportDataSet
     /// </summary>
     public CellSet? CellSet { get; private set; }
 
-    public void ExecuteQuery(IDbConnection connection, IReadOnlyDictionary<string, object>? parameters = default, IReportResourceProvider? resourceProvider = default)
+    public void ExecuteQuery(IDbConnection connection, IReadOnlyDictionary<string, object?>? parameters = default, IReportResourceProvider? resourceProvider = default)
     {
         string mdxQuery;
 
@@ -52,7 +53,12 @@ public class AdomdReportDataSet : IDbReportDataSet
         ExecuteQuery(connection, mdxQuery, parameters);
     }
 
-    private void ExecuteQuery(IDbConnection connection, string mdxQuery, IReadOnlyDictionary<string, object>? parameters)
+    public void ExecuteQuery(IDbConnection connection, ReportParameterCollection parameters, IReportResourceProvider? resourceProvider = default)
+    {
+        ExecuteQuery(connection, parameters.ToDictionary());
+    }
+
+    private void ExecuteQuery(IDbConnection connection, string mdxQuery, IReadOnlyDictionary<string, object?>? parameters)
     {
         if (connection == null) throw new ArgumentNullException(nameof(connection));
 
@@ -71,7 +77,7 @@ public class AdomdReportDataSet : IDbReportDataSet
             if (handleConnection)
                 connection.Open();
 
-            CellSet = command.ExecuteCellSet(); 
+            CellSet = command.ExecuteCellSet();
         }
         finally
         {

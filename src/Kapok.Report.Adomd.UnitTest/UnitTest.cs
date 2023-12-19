@@ -17,7 +17,7 @@ public class UnitTest
         {
             DataSourceName = "LocalTest",
 
-            // A query to selecte all databases
+            // A query to select all databases
             MdxQuery = @"SELECT * FROM $system.dbschema_catalogs"
         };
 

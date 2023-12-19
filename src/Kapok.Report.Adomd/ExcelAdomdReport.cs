@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Kapok.Report.Adomd.ExcelStyling;
+using Kapok.Report.Model;
 using Microsoft.AnalysisServices.AdomdClient;
 using OfficeOpenXml;
 
@@ -65,7 +66,7 @@ public abstract class ExcelAdomdReport : ExcelReport
     }
 
     public static (int, int) AdomdQueryToExcelWorksheet(AdomdConnection connection, AdomdReportDataSet dataSet,
-        IReportResourceProvider resourceProvider, IReadOnlyDictionary<string, object> reportParameters,
+        IReportResourceProvider resourceProvider, ReportParameterCollection reportParameters,
         ExcelWorksheet worksheet, string tableName, ExcelContingencyTableStyle? tableStyle, int columnStart, int rowStart,
         string? title = null,
         List<AdomdAxisDynamicCaption>? columnDynamicCaptions = null,
