@@ -30,8 +30,8 @@ jobs:
       run: dotnet restore
     - name: Build
       run: |
-        dotnet build --no-restore -c $configuration
-        dotnet pack -c $configuration -o out
+        dotnet build --no-restore -c ${{ matrix.configuration}}
+        dotnet pack -c ${{ matrix.configuration}} -o out
 #    - name: Test
 #      run: dotnet test --no-build --verbosity normal
     - name: Upload artifacts
