@@ -39,7 +39,7 @@ public class AdomdReportDataSet : IDbReportDataSet
             {
                 throw new ArgumentException($"The DataSet uses a resource but {nameof(resourceProvider)} was not given", nameof(resourceProvider));
             }
-            mdxQuery = System.Text.Encoding.Default.GetString(resourceProvider[MdxQueryResourceName].Data);
+            mdxQuery = System.Text.Encoding.Default.GetString(resourceProvider[MdxQueryResourceName].Data ?? Array.Empty<byte>());
         }
         else if (MdxQuery != null)
         {
@@ -55,7 +55,7 @@ public class AdomdReportDataSet : IDbReportDataSet
 
     public void ExecuteQuery(IDbConnection connection, ReportParameterCollection parameters, IReportResourceProvider? resourceProvider = default)
     {
-        ExecuteQuery(connection, parameters.ToDictionary());
+        ExecuteQuery(connection, parameters.ToDictionary(), resourceProvider);
     }
 
     private void ExecuteQuery(IDbConnection connection, string mdxQuery, IReadOnlyDictionary<string, object?>? parameters)
