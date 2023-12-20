@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.22
+
+- fix resourceProvider parameter not given
+- fix nullable issues
+
 ## 0.1.21
 
 - upgrade to Kapok version 0.1.21
