@@ -13,7 +13,7 @@ public class ReportParameterAdomdIterationSource : IEnumerable<object>
     protected readonly AdomdConnection Connection;
     protected readonly AdomdReportDataSet DataSet;
     protected readonly IReportResourceProvider? ResourceProvider;
-    protected readonly IReadOnlyDictionary<string, object>? Parameters;
+    protected readonly IReadOnlyDictionary<string, object?>? Parameters;
     protected readonly string? MemberPropertyName;
 
     /// <summary>
@@ -41,7 +41,7 @@ public class ReportParameterAdomdIterationSource : IEnumerable<object>
     public ReportParameterAdomdIterationSource(AdomdConnection connection, AdomdReportDataSet dataSet,
         string? memberPropertyName = default,
         IReportResourceProvider? resourceProvider = default,
-        IReadOnlyDictionary<string, object>? parameters = default)
+        IReadOnlyDictionary<string, object?>? parameters = default)
     {
         Connection = connection;
         DataSet = dataSet;
