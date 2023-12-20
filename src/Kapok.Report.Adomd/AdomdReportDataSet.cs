@@ -25,7 +25,7 @@ public class AdomdReportDataSet : IDbReportDataSet
     }
 
     /// <summary>
-    /// The result ADOMD cell set from the MDX query.
+    /// The result Adomd cell set from the MDX query.
     /// </summary>
     public CellSet? CellSet { get; private set; }
 
@@ -63,6 +63,8 @@ public class AdomdReportDataSet : IDbReportDataSet
         if (connection == null) throw new ArgumentNullException(nameof(connection));
 
         var command = new AdomdCommand(mdxQuery, (AdomdConnection)connection);
+
+        command.CommandTimeout = 0;  // set command timeout to infinity
 
         if (parameters != null)
             foreach (var reportParameter in parameters)
