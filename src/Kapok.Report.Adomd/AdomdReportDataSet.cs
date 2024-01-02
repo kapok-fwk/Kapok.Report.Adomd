@@ -15,7 +15,7 @@ public class AdomdReportDataSet : IDbReportDataSet
     public string? MdxQuery { get; set; }
 
     /// <summary>
-    /// The resource name for parameter 'MdxQuery'
+    /// The resource name for property <see cref="MdxQuery"/>.
     /// </summary>
     public string? MdxQueryResourceName { get; set; }
 
@@ -29,7 +29,7 @@ public class AdomdReportDataSet : IDbReportDataSet
     /// </summary>
     public CellSet? CellSet { get; private set; }
 
-    public void ExecuteQuery(IDbConnection connection, IReadOnlyDictionary<string, object?>? parameters = default, IReportResourceProvider? resourceProvider = default)
+    private string GetMdxQuery(IReportResourceProvider? resourceProvider = default)
     {
         string mdxQuery;
 
@@ -50,7 +50,12 @@ public class AdomdReportDataSet : IDbReportDataSet
             throw new NotSupportedException($"Could not determine MDX query from DataSet. You need to set property {MdxQuery} or {MdxQueryResourceName}.");
         }
 
-        ExecuteQuery(connection, mdxQuery, parameters);
+        return mdxQuery;
+    }
+
+    public void ExecuteQuery(IDbConnection connection, IReadOnlyDictionary<string, object?>? parameters = default, IReportResourceProvider? resourceProvider = default)
+    {
+        ExecuteQuery(connection, GetMdxQuery(resourceProvider), parameters);
     }
 
     public void ExecuteQuery(IDbConnection connection, ReportParameterCollection parameters, IReportResourceProvider? resourceProvider = default)
@@ -67,10 +72,12 @@ public class AdomdReportDataSet : IDbReportDataSet
         command.CommandTimeout = 0;  // set command timeout to infinity
 
         if (parameters != null)
+        {
             foreach (var reportParameter in parameters)
             {
                 command.Parameters.Add(new AdomdParameter(reportParameter.Key, reportParameter.Value));
             }
+        }
 
         bool handleConnection = connection.State == ConnectionState.Closed;
 
