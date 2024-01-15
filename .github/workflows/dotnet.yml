@@ -46,7 +46,7 @@ jobs:
 
     if: github.event_name != 'pull_request'
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Add Kapok package source
@@ -58,4 +58,4 @@ jobs:
         path: ~/download/nuget_packages/
 
     - name: Push generated package to GitHub registry
-      run: Get-ChildItem "~/download/nuget_packages/" | foreach { dotnet nuget push $_.FullName --skip-duplicate --source kapok-fwk --api-key ${{ secrets.KAPOK_FWK_GITHUB_TOKEN }} }
+      run: for packageFile in $(ls ~/download/nuget_packages/); do dotnet nuget push ~/download/nuget_packages/$packageFile --skip-duplicate --source kapok-fwk --api-key ${{ secrets.KAPOK_FWK_GITHUB_TOKEN }}; done
