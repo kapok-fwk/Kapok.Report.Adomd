@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="4.5.3.3" />
-    <PackageReference Include="Kapok.Report" Version="0.1.21" />
+    <PackageReference Include="Kapok.Report" Version="0.2.0" />
     <PackageReference Include="Microsoft.AnalysisServices.AdomdClient.NetCore.retail.amd64" Version="19.72.0" />
   </ItemGroup>
 
