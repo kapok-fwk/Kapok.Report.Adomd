@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- add target framework net10.0
+
 ## 0.1.22
 
 - fix resourceProvider parameter not given
