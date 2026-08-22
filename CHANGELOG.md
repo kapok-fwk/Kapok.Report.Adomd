@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## 0.3.0 (2026-08-22)
 
 - add target framework net10.0
+- upgrade to Kapok version 0.3.0
 
 ## 0.1.22
 
